@@ -12,9 +12,8 @@ Este repositório contém testes automatizados utilizando **Robot Framework** e 
 ## 📋 Estrutura dos Arquivos
 
 ```
-.
-├── tests/
-│   └── test_advantage.robot           # Casos de teste principais
+
+│   advantage_testes.robot.robot           # Casos de teste principais
 ├── Resources/
 │   └── keywords.robot                 # Arquivo com os Keywords utilizados
 ├── README.md                          # Este arquivo
