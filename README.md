@@ -37,7 +37,7 @@ pip install robotframework-seleniumlibrary
 Execute o seguinte comando na raiz do projeto:
 
 ```bash
-robot tests/test_advantage.robot
+ robot -d resultados advantage_testes.robot    
 ```
 
 ## ✅ Casos de Teste
