@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.11.1 on win32)" generated="2025-05-05T20:56:46.408280" rpa="false" schemaversion="5">
+<suite id="s1" name="Advantage Testes" source="C:\Users\jessi\projetos\advantage-automation\advantage_testes.robot">
+<kw name="Abrir o navegador" owner="keywords" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-05-05T20:56:47.013282" level="INFO">Opening browser 'chrome' to base url 'https://advantageonlineshopping.com/#/'.</msg>
+<arg>${URL}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-05-05T20:56:47.012285" elapsed="4.399999"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-05-05T20:56:51.413282" elapsed="0.052000"/>
+</kw>
+<status status="PASS" start="2025-05-05T20:56:47.011283" elapsed="4.453999"/>
+</kw>
+<test id="s1-t1" name="Buscar um produto" line="7">
+<kw name="Dado que estou na home page do Advantage Online Shopping" owner="keywords">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-05-05T20:56:51.468283" level="INFO">Opening url 'https://advantageonlineshopping.com/#/'</msg>
+<arg>${URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-05-05T20:56:51.468283" elapsed="0.047001"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CAMPO_PRODUTO}</arg>
+<arg>timeout=15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-05-05T20:56:51.516290" elapsed="2.729994"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-05-05T20:56:54.468281" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="home_page.png"&gt;&lt;img src="home_page.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>home_page.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-05-05T20:56:54.247286" elapsed="0.220995"/>
+</kw>
+<status status="PASS" start="2025-05-05T20:56:51.467283" elapsed="3.001999"/>
+</kw>
+<kw name="Buscar por &quot;Bose Soundlink Bluetooth Speaker III&quot;" owner="keywords">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-05-05T20:56:54.470283" level="INFO">Clicking element '//span[@id='speakersTxt']'.</msg>
+<arg>${CAMPO_PRODUTO}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-05T20:56:54.470283" elapsed="0.175009"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${PRODUTO_LINK}</arg>
+<arg>timeout=20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-05-05T20:56:54.645292" elapsed="1.317990"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-05-05T20:56:56.294282" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="busca_produto.png"&gt;&lt;img src="busca_produto.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>busca_produto.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-05-05T20:56:55.963282" elapsed="0.331000"/>
+</kw>
+<status status="PASS" start="2025-05-05T20:56:54.469282" elapsed="1.826004"/>
+</kw>
+<kw name="Então deve ser exibido o produto &quot;Bose Soundlink Bluetooth Speaker III&quot;" owner="keywords">
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2025-05-05T20:56:56.315283" level="INFO">Element '//a[normalize-space()='Bose Soundlink Bluetooth Speaker III']' is displayed.</msg>
+<arg>${PRODUTO_LINK}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2025-05-05T20:56:56.296284" elapsed="0.018999"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-05-05T20:56:56.638282" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="produto_exibido.png"&gt;&lt;img src="produto_exibido.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>produto_exibido.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-05-05T20:56:56.316328" elapsed="0.321954"/>
+</kw>
+<status status="PASS" start="2025-05-05T20:56:56.295286" elapsed="0.342996"/>
+</kw>
+<status status="PASS" start="2025-05-05T20:56:51.466283" elapsed="5.175000"/>
+</test>
+<test id="s1-t2" name="Incluir produto no carrinho" line="12">
+<kw name="Dado que estou na home page do Advantage Online Shopping" owner="keywords">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-05-05T20:56:56.645283" level="INFO">Opening url 'https://advantageonlineshopping.com/#/'</msg>
+<arg>${URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-05-05T20:56:56.645283" elapsed="0.092001"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CAMPO_PRODUTO}</arg>
+<arg>timeout=15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-05-05T20:56:56.737284" elapsed="0.043998"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-05-05T20:56:57.137282" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="home_page.png"&gt;&lt;img src="home_page.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>home_page.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-05-05T20:56:56.782285" elapsed="0.354997"/>
+</kw>
+<status status="PASS" start="2025-05-05T20:56:56.644284" elapsed="0.492998"/>
+</kw>
+<kw name="Buscar por &quot;Bose Soundlink Bluetooth Speaker III&quot;" owner="keywords">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-05-05T20:56:57.138280" level="INFO">Clicking element '//span[@id='speakersTxt']'.</msg>
+<arg>${CAMPO_PRODUTO}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-05T20:56:57.138280" elapsed="0.128011"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${PRODUTO_LINK}</arg>
+<arg>timeout=20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-05-05T20:56:57.266291" elapsed="0.452991"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-05-05T20:56:58.068283" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="busca_produto.png"&gt;&lt;img src="busca_produto.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>busca_produto.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-05-05T20:56:57.719282" elapsed="0.350001"/>
+</kw>
+<status status="PASS" start="2025-05-05T20:56:57.138280" elapsed="0.931003"/>
+</kw>
+<kw name="Quando adicionar o primeiro produto ao carrinho" owner="keywords">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-05-05T20:56:58.070283" level="INFO">Clicking element '//a[normalize-space()='Bose Soundlink Bluetooth Speaker III']'.</msg>
+<arg>${PRODUTO_LINK}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-05T20:56:58.070283" elapsed="0.112031"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${BOTAO_ADICIONAR}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-05-05T20:56:58.182314" elapsed="0.903968"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-05-05T20:56:59.087284" level="INFO">Clicking button '//button[normalize-space()='ADD TO CART']'.</msg>
+<arg>${BOTAO_ADICIONAR}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-05T20:56:59.086282" elapsed="0.144000"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-05-05T20:56:59.388808" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="produto_adicionado.png"&gt;&lt;img src="produto_adicionado.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>produto_adicionado.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-05-05T20:56:59.231283" elapsed="0.157525"/>
+</kw>
+<status status="PASS" start="2025-05-05T20:56:58.069283" elapsed="1.320527"/>
+</kw>
+<kw name="Então o produto deve aparecer no carrinho" owner="keywords">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-05-05T20:56:59.391809" level="INFO">Clicking element '//a[@id='shoppingCartLink']//*[name()='svg']'.</msg>
+<arg>${CARRINHO_ICON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-05T20:56:59.390810" elapsed="0.146002"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${BOTAO_CHECKOUT}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-05-05T20:56:59.536812" elapsed="0.078998"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-05-05T20:56:59.821810" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="produto_no_carrinho.png"&gt;&lt;img src="produto_no_carrinho.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>produto_no_carrinho.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-05-05T20:56:59.616813" elapsed="0.204997"/>
+</kw>
+<status status="PASS" start="2025-05-05T20:56:59.390810" elapsed="0.431000"/>
+</kw>
+<status status="PASS" start="2025-05-05T20:56:56.643291" elapsed="3.179529"/>
+</test>
+<test id="s1-t3" name="Validar produto na tela de pagamento" line="18">
+<kw name="Dado que o produto está no carrinho" owner="keywords">
+<kw name="Dado que estou na home page do Advantage Online Shopping" owner="keywords">
+<kw name="Go To" owner="SeleniumLibrary">
+<msg time="2025-05-05T20:56:59.832808" level="INFO">Opening url 'https://advantageonlineshopping.com/#/'</msg>
+<arg>${URL}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<status status="PASS" start="2025-05-05T20:56:59.831812" elapsed="0.123997"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${CAMPO_PRODUTO}</arg>
+<arg>timeout=15s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-05-05T20:56:59.955809" elapsed="0.059999"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-05-05T20:57:00.345810" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="home_page.png"&gt;&lt;img src="home_page.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>home_page.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-05-05T20:57:00.015808" elapsed="0.331001"/>
+</kw>
+<status status="PASS" start="2025-05-05T20:56:59.831812" elapsed="0.514997"/>
+</kw>
+<kw name="Buscar por &quot;Bose Soundlink Bluetooth Speaker III&quot;" owner="keywords">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-05-05T20:57:00.347811" level="INFO">Clicking element '//span[@id='speakersTxt']'.</msg>
+<arg>${CAMPO_PRODUTO}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-05T20:57:00.347811" elapsed="0.175009"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${PRODUTO_LINK}</arg>
+<arg>timeout=20s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-05-05T20:57:00.523810" elapsed="0.028997"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-05-05T20:57:00.949811" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="busca_produto.png"&gt;&lt;img src="busca_produto.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>busca_produto.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-05-05T20:57:00.552807" elapsed="0.398002"/>
+</kw>
+<status status="PASS" start="2025-05-05T20:57:00.346809" elapsed="0.604000"/>
+</kw>
+<kw name="Quando adicionar o primeiro produto ao carrinho" owner="keywords">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-05-05T20:57:00.951818" level="INFO">Clicking element '//a[normalize-space()='Bose Soundlink Bluetooth Speaker III']'.</msg>
+<arg>${PRODUTO_LINK}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-05T20:57:00.951818" elapsed="0.250993"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${BOTAO_ADICIONAR}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-05-05T20:57:01.202811" elapsed="0.052998"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-05-05T20:57:01.256809" level="INFO">Clicking button '//button[normalize-space()='ADD TO CART']'.</msg>
+<arg>${BOTAO_ADICIONAR}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-05T20:57:01.255809" elapsed="0.195000"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-05-05T20:57:01.603809" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="produto_adicionado.png"&gt;&lt;img src="produto_adicionado.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>produto_adicionado.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-05-05T20:57:01.450809" elapsed="0.153000"/>
+</kw>
+<status status="PASS" start="2025-05-05T20:57:00.950809" elapsed="0.654004"/>
+</kw>
+<kw name="Então o produto deve aparecer no carrinho" owner="keywords">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-05-05T20:57:01.605807" level="INFO">Clicking element '//a[@id='shoppingCartLink']//*[name()='svg']'.</msg>
+<arg>${CARRINHO_ICON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-05T20:57:01.604813" elapsed="0.167997"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${BOTAO_CHECKOUT}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-05-05T20:57:01.773812" elapsed="0.040998"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-05-05T20:57:01.936805" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="produto_no_carrinho.png"&gt;&lt;img src="produto_no_carrinho.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>produto_no_carrinho.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-05-05T20:57:01.814810" elapsed="0.123001"/>
+</kw>
+<status status="PASS" start="2025-05-05T20:57:01.604813" elapsed="0.332998"/>
+</kw>
+<doc>Garante que o produto está no carrinho antes de prosseguir</doc>
+<status status="PASS" start="2025-05-05T20:56:59.830808" elapsed="2.107003"/>
+</kw>
+<kw name="Quando acessar a tela de pagamento" owner="keywords">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-05-05T20:57:01.938812" level="INFO">Clicking element '//a[@id='shoppingCartLink']//*[name()='svg']'.</msg>
+<arg>${CARRINHO_ICON}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-05T20:57:01.938812" elapsed="0.105001"/>
+</kw>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${BOTAO_CHECKOUT}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-05-05T20:57:02.044808" elapsed="0.021999"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-05-05T20:57:02.067805" level="INFO">Clicking element '//button[@id='checkOutPopUp']'.</msg>
+<arg>${BOTAO_CHECKOUT}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-05-05T20:57:02.066807" elapsed="0.136003"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-05-05T20:57:02.358811" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="tela_pagamento.png"&gt;&lt;img src="tela_pagamento.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>tela_pagamento.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-05-05T20:57:02.203811" elapsed="0.155000"/>
+</kw>
+<status status="PASS" start="2025-05-05T20:57:01.938812" elapsed="0.421002"/>
+</kw>
+<kw name="Então o produto deve estar listado na tela de pagamento" owner="keywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${VALIDA_PAGAMENTO}</arg>
+<arg>timeout=10s</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-05-05T20:57:02.375810" elapsed="0.148000"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-05-05T20:57:02.697813" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="produto_listado_pagamento.png"&gt;&lt;img src="produto_listado_pagamento.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>produto_listado_pagamento.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-05-05T20:57:02.524809" elapsed="0.173004"/>
+</kw>
+<status status="PASS" start="2025-05-05T20:57:02.375810" elapsed="0.322999"/>
+</kw>
+<status status="PASS" start="2025-05-05T20:56:59.828812" elapsed="2.876997"/>
+</test>
+<kw name="Fechar o navegador" owner="keywords" type="TEARDOWN">
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2025-05-05T20:57:02.886811" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2025-05-05T20:57:02.709808" elapsed="0.177003"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-05-05T20:57:02.886811" elapsed="3.031736"/>
+</kw>
+<status status="PASS" start="2025-05-05T20:57:02.708809" elapsed="3.209738"/>
+</kw>
+<status status="PASS" start="2025-05-05T20:56:46.410281" elapsed="19.508266"/>
+</suite>
+<statistics>
+<total>
+<stat pass="3" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Advantage Testes" id="s1" pass="3" fail="0" skip="0">Advantage Testes</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
