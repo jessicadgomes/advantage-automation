@@ -1,0 +1,4 @@
+base_url_catalog: "https://www.advantageonlineshopping.com/catalog/api/v1"
+base_url_account: "https://www.advantageonlineshopping.com/accountservice/ws/v1"
+admin_email: "admin_teste@gmail.com"
+admin_password: "senhateste123"

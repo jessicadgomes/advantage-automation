@@ -1,63 +1,124 @@
-# Testes Automatizados - Advantage Online Shopping 🛒
+🧪 Projeto de Automação de Testes - Advantage Online Shopping
+Este projeto tem como objetivo a automação de testes funcionais Web e API do site Advantage Online Shopping, utilizando o Robot Framework com suporte a bibliotecas como SeleniumLibrary e RequestsLibrary.
 
-Este repositório contém testes automatizados utilizando **Robot Framework** e **SeleniumLibrary** para o site [Advantage Online Shopping](https://advantageonlineshopping.com/#/). O objetivo é validar funcionalidades essenciais de navegação, busca e fluxo de compra no e-commerce.
+🚀 Tecnologias Utilizadas
+Robot Framework: Framework de automação de testes.
 
-## 🧪 Tecnologias Utilizadas
+SeleniumLibrary: Para automação de testes Web.
 
-- [Robot Framework](https://robotframework.org/)
-- [SeleniumLibrary](https://robotframework.org/SeleniumLibrary/SeleniumLibrary.html)
-- Python 3.x
-- Google Chrome + ChromeDriver
+RequestsLibrary: Para automação de testes de API.
 
-## 📋 Estrutura dos Arquivos
+Python 3.x
 
-```
-.
-├── tests/
-│   └── test_advantage.robot           # Casos de teste principais
-├── Resources/
-│   └── keywords.robot                 # Arquivo com os Keywords utilizados
-├── README.md                          # Este arquivo
-```
+ChromeDriver: Necessário para os testes em navegador.
 
-## 📌 Pré-requisitos
+📁 Estrutura do Projeto
+bash
+Copiar
+Editar
+ADVANTAGE-AUTOMATION/
+├── img/                        # Imagens usadas nos testes (ex: upload)
+│   └── imagem.jpg
+├── Resources/                 # Recursos e keywords reutilizáveis
+│   ├── keywords.robot
+│   └── login_admin.robot
+├── resultado/                 # Relatórios gerados após execução
+│   ├── log.html
+│   ├── output.xml
+│   └── report.html
+├── resultados/               # Capturas de tela dos testes Web
+│   ├── busca_produto.png
+│   ├── produto_adicionado.png
+│   └── ...
+├── tests/                     # Casos de teste
+│   ├── api/                   # Testes de API
+│   │   ├── test_busca.robot
+│   │   ├── test_criar_user_admin.robot
+│   │   └── test_upload.robot
+│   ├── web/                   # Testes Web (UI)
+│   │   └── test_compra_produto.robot
+│   └── variables/             # Variáveis globais do projeto
+│       ├── variables.robot
+│       └── variables.yaml
+└── README.md
+✅ Testes Implementados
+🔎 Web
+Buscar Produto
 
-- Python 3 instalado
-- Google Chrome instalado
-- ChromeDriver compatível com a versão do navegador
-- Instalar dependências:
+Valida a busca por um produto na home.
 
-```bash
+Adicionar Produto ao Carrinho
+
+Verifica se o produto aparece corretamente no carrinho.
+
+Validar Produto na Tela de Pagamento
+
+Garante que o item listado na tela de pagamento seja o esperado.
+
+🌐 API
+Criar Usuário Admin
+
+Realiza a criação de um usuário com permissão ADMIN.
+
+Buscar Produto via API
+
+Testa a busca de um item diretamente pelo endpoint da API.
+
+Upload de Imagem com Usuário Admin
+
+Realiza login e faz o upload de uma imagem para o produto, exigindo autenticação com token.
+
+📦 Instalação e Execução
+Pré-requisitos
+Python 3.x
+
+Pip
+
+Chrome + ChromeDriver
+
+Instalação
 pip install robotframework
 pip install robotframework-seleniumlibrary
-```
+pip install robotframework-requests
 
-## 🚀 Como Executar os Testes
+Coloque o chromedriver no mesmo diretório do projeto ou adicione ao PATH do sistema.
 
-Execute o seguinte comando na raiz do projeto:
+Executar Testes
+Executar todos os testes Web:
+robot tests/web
 
-```bash
-robot tests/test_advantage.robot
-```
+Executar testes de API:
+robot tests/api
 
-## ✅ Casos de Teste
+Executar um teste específico:
+robot tests/api/test_upload.robot
 
-| Caso de Teste                         | Descrição                                                                 |
-|--------------------------------------|---------------------------------------------------------------------------|
-| Buscar um produto                    | Valida a busca pelo produto "Bose Soundlink Bluetooth Speaker III"       |
-| Incluir produto no carrinho          | Valida a adição do produto ao carrinho                                   |
-| Validar produto na tela de pagamento | Verifica se o produto adicionado aparece corretamente na tela de checkout|
+📊 Relatórios
+Após a execução, os seguintes arquivos são gerados automaticamente na pasta resultado/:
 
-## 📝 Observações
+log.html: Log detalhado da execução
 
-- Todos os testes utilizam o navegador **Chrome**.
-- Há captura de tela ao final de cada execução para facilitar a análise em caso de falha.
-- Elementos foram identificados utilizando **XPath**.
+report.html: Relatório resumido
 
-## 📷 Evidências
+output.xml: Saída padrão em XML
 
-As capturas de tela dos testes são salvas automaticamente para análise posterior.
+📸 Evidências de Execução
+As imagens geradas durante os testes Web ficam salvas na pasta resultados/.
 
----
+🤝 Contribuições
+Sinta-se à vontade para contribuir:
 
-Desenvolvido com 💻 por **Jéssica Gomes**
+Fork este repositório.
+
+Crie uma branch com sua feature: git checkout -b minha-feature
+
+Commit suas alterações: git commit -m 'feat: nova feature'
+
+Push para a branch: git push origin minha-feature
+
+Abra um Pull Request
+
+📌 Observações
+O ambiente deve estar configurado com as variáveis corretas para autenticação (usuário admin).
+
+Certifique-se de atualizar os endpoints conforme alterações na API do Advantage Shopping.
