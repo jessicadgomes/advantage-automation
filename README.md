@@ -10,7 +10,17 @@ RequestsLibrary: Para automação de testes de API.
 
 Python 3.x
 
+<<<<<<< HEAD
 ChromeDriver: Necessário para os testes em navegador.
+=======
+```
+
+│   advantage_testes.robot.robot           # Casos de teste principais
+├── Resources/
+│   └── keywords.robot                 # Arquivo com os Keywords utilizados
+├── README.md                          # Este arquivo
+```
+>>>>>>> 7d2acbc39429c83c30ebc0db9ec842e3973cd8d3
 
 📁 Estrutura do Projeto
 bash
@@ -87,9 +97,6 @@ Executar Testes
 Executar todos os testes Web:
 robot tests/web
 
-Executar testes de API:
-robot tests/api
-
 Executar um teste específico:
 robot tests/api/test_upload.robot
 
@@ -108,6 +115,7 @@ As imagens geradas durante os testes Web ficam salvas na pasta resultados/.
 🤝 Contribuições
 Sinta-se à vontade para contribuir:
 
+<<<<<<< HEAD
 Fork este repositório.
 
 Crie uma branch com sua feature: git checkout -b minha-feature
@@ -122,3 +130,6 @@ Abra um Pull Request
 O ambiente deve estar configurado com as variáveis corretas para autenticação (usuário admin).
 
 Certifique-se de atualizar os endpoints conforme alterações na API do Advantage Shopping.
+=======
+Desenvolvido com 💻 por **Jéssica Gomes**
+>>>>>>> 7d2acbc39429c83c30ebc0db9ec842e3973cd8d3
