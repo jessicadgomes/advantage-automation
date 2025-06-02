@@ -1,5 +1,6 @@
-🧪 Projeto de Automação de Testes - Advantage Online Shopping
-Este projeto tem como objetivo a automação de testes funcionais Web e API do site Advantage Online Shopping, utilizando o Robot Framework com suporte a bibliotecas como SeleniumLibrary e RequestsLibrary.
+# 🧪 Projeto de Automação de Testes - Advantage Online Shopping
+
+Este projeto automatiza testes funcionais Web e API do site **Advantage Online Shopping**, utilizando **Robot Framework** com suporte a bibliotecas como **SeleniumLibrary** e **RequestsLibrary**.
 
 🚀 Tecnologias Utilizadas
 Robot Framework: Framework de automação de testes.
@@ -35,19 +36,14 @@ ADVANTAGE-AUTOMATION/
 │       ├── variables.robot
 │       └── variables.yaml
 └── README.md
-✅ Testes Implementados
-🔎 Web
-Buscar Produto
 
-Valida a busca por um produto na home.
+## ✅ Testes Implementados
 
-Adicionar Produto ao Carrinho
+### 🔎 Web
 
-Verifica se o produto aparece corretamente no carrinho.
-
-Validar Produto na Tela de Pagamento
-
-Garante que o item listado na tela de pagamento seja o esperado.
+- **Buscar Produto**: Valida a busca por um produto na home.
+- **Adicionar Produto ao Carrinho**: Verifica se o produto aparece corretamente no carrinho.
+- **Validar Produto na Tela de Pagamento**: Garante que o item listado na tela de pagamento seja o esperado.
 
 🌐 API
 Buscar Produto via API
@@ -58,20 +54,24 @@ Upload de Imagem com Usuário Criado
 
 Realiza login e faz o upload de uma imagem para o produto, exigindo autenticação com token.
 
-📦 Instalação e Execução
-Pré-requisitos
-Python 3.x
+---
 
-Pip
+## 📦 Instalação e Execução
 
-Chrome + ChromeDriver
+### Pré-requisitos
 
-Instalação
+- Python 3.x
+- pip
+- Google Chrome + ChromeDriver (compatível com sua versão do Chrome)
+
+### Instalação
+
+```bash
 pip install robotframework
 pip install robotframework-seleniumlibrary
 pip install robotframework-requests
 
-Coloque o chromedriver no mesmo diretório do projeto ou adicione ao PATH do sistema.
+Coloque o chromedriver no mesmo diretório do projeto ou adicione-o ao PATH do sistema.
 
 Executar Testes
 Executar todos os testes Web:
@@ -83,26 +83,28 @@ robot tests/api/test_upload.robot
 📊 Relatórios
 Após a execução dos testes de API, os seguintes arquivos são gerados automaticamente na pasta resultado/:
 
-log.html: Log detalhado da execução
+log.html — Log detalhado da execução
 
-report.html: Relatório resumido
+report.html — Relatório resumido
 
-output.xml: Saída padrão em XML
+output.xml — Saída padrão em XML
 
 📸 Evidências de Execução
-As imagens geradas durante os testes Web ficam salvas na pasta resultados/.
+As imagens geradas durante os testes Web são salvas na pasta resultados/.
 
 🤝 Contribuições
-Sinta-se à vontade para contribuir:
+Contribuições são bem-vindas! Para contribuir:
 
 Fork este repositório.
 Crie uma branch com sua feature: git checkout -b minha-feature
 
-Commit suas alterações: git commit -m 'feat: nova feature'
+Commit suas alterações:
+git commit -m 'feat: nova feature'
 
-Push para a branch: git push origin minha-feature
+Push para sua branch:
+git push origin minha-feature
 
-Abra um Pull Request
+Abra um Pull Request.
 
 📌 Observações
 O ambiente deve estar configurado com as variáveis corretas para autenticação (usuário admin).
