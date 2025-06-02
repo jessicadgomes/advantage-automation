@@ -4,7 +4,7 @@ Library    RequestsLibrary
 *** Variables ***
 ${BASE_URL}      https://www.advantageonlineshopping.com
 ${ENDPOINT}      /catalog/api/v1/product/image/645996510/img/red
-${TOKEN}         Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ3d3cuYWR2YW50YWdlb25saW5lc2hvcHBpbmcuY29tIiwidXNlcklkIjo2NDU5OTY1MTAsInN1YiI6IkJFUk5BUkRPVCIsInJvbGUiOiJBRE1JTiJ9.GP4gzb983_Yjw8xjCvDNRN56yJQCcIExSeDXeriEsM4
+${TOKEN}         Bearer ..
 ${IMAGE_PATH}    C:/Users/jessi/projetos/advantage-automation/tests/api/resources/img/imagem.jpg
 
 *** Test Cases ***
