@@ -1,40 +1,36 @@
 *** Settings ***
-Library    Collections
-Library    RequestsLibrary
-Library    OperatingSystem
+Library           RequestsLibrary
+Library           OperatingSystem
+Library           Collections
 
 *** Variables ***
-${BASE_URL}           https://www.advantageonlineshopping.com
-${LOGIN_ENDPOINT}     /accountservice/accountrest/api/v1/login
-${UPLOAD_ENDPOINT}    /catalog/api/v1/product/image/AdminQA/source/color
-${USERNAME}           AdminQA
-${PASSWORD}           Teste123
-${IMAGE_PATH}         img/imagem.jpg
+${BASE_URL}       https://www.advantageonlineshopping.com
+${IMAGE_PATH}     img/imagem.jpg
+${SOURCE}         web
+${COLOR}          black
+
+# Preencha com os valores fornecidos
+${TOKEN}          eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ3d3cuYWR2YW50YWdlb25saW5lc2hvcHBpbmcuY29tIiwidXNlcklkIjo1Mjk2MjY1ODAsInN1YiI6Ikplc3NRQSIsInJvbGUiOiJVU0VSIn0.B8iZ-qrmpZiT5xr8vuSV7ugfeI4ZT7ZjrzZrqfbq2QU
+${USER_ID}        529626580
+${SESSION_ID}     1972dfe1783@7E9620F10^i%529626580
+
+*** Keywords ***
+Upload Imagem Produto
+    [Arguments]        ${token}    ${user_id}
+    [Documentation]    Faz upload de imagem de produto e retorna o id da imagem
+    Create Session     upload    ${BASE_URL}
+    ${headers}=        Create Dictionary    Authorization=Bearer ${token}    sessionId=${SESSION_ID}
+    ${files}=          Create Dictionary    file=@${IMAGE_PATH}
+    ${endpoint}=       Set Variable    /catalog/api/v1/product/image/${user_id}/${SOURCE}/${COLOR}
+    ${response}=       POST On Session    upload    ${endpoint}    headers=${headers}    files=${files}    expected_status=any
+    Should Be Equal As Integers    ${response.status_code}    200
+    ${json}=           Evaluate    ${response.json()}    json
+    ${image_id}=       Get From Dictionary    ${json}    id
+    Should Not Be Empty    ${image_id}
+    [Return]           ${image_id}
 
 *** Test Cases ***
-Upload de Imagem de Produto com Usuário Admin
-    [Documentation]    Realiza login como Admin e envia uma imagem para um produto via API
-
-    # Login para obter token
-    Create Session    auth    ${BASE_URL}
-    ${headers}=    Create Dictionary    Content-Type=application/json
-    ${body}=    Create Dictionary    loginName=${USERNAME}    password=${PASSWORD}
-    ${response}=    Post Request    auth    ${LOGIN_ENDPOINT}    headers=${headers}    json=${body}
-    Should Be Equal As Strings    ${response.status_code}    200
-    ${token}=    Set Variable    ${response.json()["token"]}
-    Log    Token: ${token}
-
-    # Confirma se imagem existe
-    File Should Exist    ${IMAGE_PATH}
-
-    # Upload
-    Create Session    shop    ${BASE_URL}
-    ${upload_headers}=    Create Dictionary    Authorization=Bearer ${token}
-    ${files}=    Create Dictionary    file=@${IMAGE_PATH}    image=@${IMAGE_PATH}
-    ${upload_response}=    Post Request    shop    ${UPLOAD_ENDPOINT}    headers=${upload_headers}    files=${files}
-
-    # Logs e validações
-    Log    ${upload_response.status_code}
-    Log    ${upload_response.text}
-    Should Be Equal As Strings    ${upload_response.status_code}    200
-    Dictionary Should Contain Key    ${upload_response.json(_
+Upload de Imagem de Produto com Token e SessionId
+    [Documentation]    Faz upload de imagem usando token e sessionId já fornecidos
+    ${image_id}=    Upload Imagem Produto    ${TOKEN}    ${USER_ID}
+    Log    Imagem enviada com sucesso. ID: ${image_id}
