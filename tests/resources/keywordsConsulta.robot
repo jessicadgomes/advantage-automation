@@ -9,7 +9,7 @@ ${PRODUTO_LINK}           //a[normalize-space()='Bose Soundlink Bluetooth Speake
 ${BOTAO_ADICIONAR}        //button[normalize-space()='ADD TO CART']
 ${CARRINHO_ICON}          //a[@id='shoppingCartLink']//*[name()='svg']
 ${BOTAO_CHECKOUT}         //button[@id='checkOutPopUp']
-${VALIDA_PAGAMENTO}       //h3[normalize-space()='ORDER PAYMENT']
+${VALIDA_PAGAMENTO}       //h3[normalize-space()='ORDER PAYMENT'] 
 
 *** Keywords ***
 Abrir o navegador

@@ -1,6 +1,6 @@
 *** Settings ***
 
-Resource    ../../Resources/keywords.robot
+Resource    ../resources/keywordsConsulta.robot
 Suite Setup    Abrir o navegador
 Suite Teardown    Fechar o navegador
 
