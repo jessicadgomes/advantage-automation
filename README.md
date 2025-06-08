@@ -1,71 +1,77 @@
 # 🧪 Projeto de Automação de Testes – Advantage Online Shopping
 
-Este projeto automatiza testes funcionais **Web e API** no site [Advantage Online Shopping](https://www.advantageonlineshopping.com), utilizando o **Robot Framework** com suporte às bibliotecas **SeleniumLibrary**, **RequestsLibrary** e recursos em **Python**.
+Este repositório contém um projeto de **automação de testes funcionais Web e API** para o site [Advantage Online Shopping](https://www.advantageonlineshopping.com), utilizando **Robot Framework**, com bibliotecas complementares e recursos em **Python**.
 
 ---
 
 ## 🚀 Tecnologias Utilizadas
 
-- **Robot Framework**: Framework principal de automação.
-- **RequestsLibrary**: Para testes de API RESTful.
-- **SeleniumLibrary**: Para testes funcionais na interface Web.
+- **Robot Framework** – Framework principal de automação.
+- **SeleniumLibrary** – Automação da interface Web.
+- **RequestsLibrary** – Testes de API RESTful.
 - **Python 3.x**
-- **ChromeDriver**: Necessário para execução dos testes Web com navegador.
+- **ChromeDriver** – Necessário para testes Web com navegador Chrome.
 
 ---
 
 ## 📁 Estrutura do Projeto
-
 advantage-automation/
+├── .env # Variáveis de ambiente (não versionado)
+├── .gitignore # Arquivos e pastas ignoradas pelo Git
 ├── image/ # Imagens usadas para upload via API
 │ └── headphone.jpg
-├── Resources/ # Keywords reutilizáveis
-│ ├── keywords.robot
 ├── resultados/ # Evidências visuais dos testes Web
-│ ├── busca_produto.png
-│ └── ...
+│ └── busca_produto.png
 ├── tests/
-│ ├── api/ # Casos de teste para API
-│ │ ├── test_busca_produto.robot
-│ │ ├── test_login.robot
-│ │ └── test_upload.robot
-│ ├── web/ # Casos de teste para Web (UI)
-│ │ └── test_compra_produto.robot
-│ └── variables/
-│ ├── variables.robot # Variáveis compartilhadas
-│ └── variables.yaml
+│ ├── api/ # Testes de API
+│ │ ├── test_busca_produto/
+│ │ ├── test_login/
+│ │ └── test_upload_imagem/
+│ ├── web/ # Testes Web
+│ │ └── test_compra_produto/
+│ └── resources/ # Recursos reutilizáveis
+│ ├── keywordsConsulta/
+│ └── load_env/
 └── README.md
+
 ---
 
 ## ✅ Testes Implementados
 
 ### 🌐 API
 
-#### 🔍 Buscar Produto
-- Valida a resposta do endpoint de busca de produto por nome.
+- **🔍 Buscar Produto**
+  - Valida a resposta do endpoint ao buscar produto por nome.
 
-#### 📤 Upload de Imagem (Produto)
-- Realiza login com usuário **admin** e faz upload de uma imagem `.jpg` para um produto.
-- Verifica o **status HTTP 200 OK** como resposta de sucesso.
+- **🔑 Login**
+  - Realiza autenticação e valida retorno do token JWT.
 
-📌 **Detalhes técnicos do upload:**
-- Autenticação via **token JWT** (formato Bearer).
-- Upload via `multipart/form-data`.
-- A imagem deve obrigatoriamente estar no formato `.jpg`.
+- **📤 Upload de Imagem (Produto)**
+  - Autentica com usuário **admin** e realiza o upload de uma imagem `.jpg`.
+  - Valida o retorno **HTTP 200 OK**.
 
-💡 **Exemplo de envio da imagem:**
+> **🔒 Autenticação:** via token JWT (formato Bearer)  
+> **📎 Formato:** `multipart/form-data`  
+> **🖼️ Imagem:** obrigatoriamente `.jpg`
 
+💡 **Exemplo de envio da imagem no Robot Framework:**
 ```robot
 ${file_content}=    Evaluate    open(r"""${IMAGE_PATH}""", "rb").read()
 ${file_tuple}=      Create List    headphone.jpg    ${file_content}    image/jpeg
 &{files}=           Create Dictionary    file=${file_tuple}
 
 🖥 Web
-Buscar Produto: Valida a busca de um produto na página inicial.
+🔍 Buscar Produto
 
-Adicionar ao Carrinho: Garante que o produto aparece corretamente no carrinho.
+Valida a busca na página inicial.
 
-Tela de Pagamento: Verifica se os dados do produto estão corretos no checkout.
+🛒 Adicionar ao Carrinho
+
+Verifica se o produto aparece corretamente no carrinho.
+
+💳 Tela de Pagamento
+
+Confirma os dados no checkout.
 
 📦 Instalação e Execução
 🔧 Pré-requisitos
@@ -73,52 +79,53 @@ Python 3.x
 
 pip (gerenciador de pacotes)
 
-Google Chrome + ChromeDriver compatível com a versão instalada
+Google Chrome + ChromeDriver compatível
 
-⚙️ Instalação
+⚙️ Instalação de Dependências
 pip install robotframework
 pip install robotframework-requests
 pip install robotframework-seleniumlibrary
-💡 Coloque o chromedriver no mesmo diretório do projeto ou adicione ao PATH do sistema.
+ Coloque o chromedriver no diretório do projeto ou adicione-o ao PATH do sistema.
 
-▶️ Executando os Testes
-Todos os testes Web:
+▶️ Como Executar os Testes
+Executar todos os testes Web:
 robot tests/web
+Executar teste específico de upload de imagem via API:
+robot tests/api/test_upload_imagem
 
-Teste específico de upload de imagem via API:
-robot tests/api/test_upload.robot
 📊 Relatórios e Evidências
-Após a execução dos testes, serão gerados automaticamente:
+Após a execução, os seguintes arquivos serão gerados automaticamente:
 
-log.html: Log detalhado da execução
+log.html – Log detalhado da execução
 
-report.html: Relatório resumido
+report.html – Relatório resumido
 
-output.xml: Saída padrão do Robot Framework
+output.xml – Saída padrão do Robot Framework
 
-📸 Imagens de testes Web são salvas na pasta resultados/.
+📸 Imagens dos testes Web são salvas na pasta resultados/
 
 📌 Observações
-O teste de upload exige token válido de autenticação JWT de um usuário admin.
+O teste de upload exige um token JWT válido de um usuário admin.
 
-O arquivo enviado precisa estar no formato .jpg e no caminho correto definido pela variável.
+A imagem precisa estar no formato .jpg e no caminho definido pela variável ${IMAGE_PATH}.
 
-Os endpoints e tokens podem mudar. Verifique a documentação da API antes de executar os testes.
+Verifique a documentação da API para endpoints atualizados.
+
+🚫 Segurança e Boas Práticas
+Os arquivos .env (com variáveis sensíveis como credenciais) e resultados/ estão listados no .gitignore e não são versionados pelo Git, garantindo segurança e organização do repositório.
 
 🤝 Contribuições
-Contribuições são muito bem-vindas! Siga os passos:
+Contribuições são bem-vindas! Para colaborar:
 
-Faça um fork do repositório.
+Faça um fork do repositório
 
-Crie uma nova branch:
-git checkout -b minha-feature
+Crie uma branch: git checkout -b minha-feature
 
-Commit suas alterações:
-git commit -m "feat: nova feature"
+Faça commits: git commit -m "feat: nova feature"
 
-Suba para seu repositório:
-git push origin minha-feature
-Abra um Pull Request explicando sua proposta.
+Envie a branch: git push origin minha-feature
+
+Abra um Pull Request explicando sua proposta
 
 👩‍💻 Desenvolvido por
 Jéssica Gomes
